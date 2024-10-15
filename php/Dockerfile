@@ -50,5 +50,4 @@ RUN find /projects -type f -exec chmod u+rw,g+rw,o+r {} +
 
 CMD ["php-fpm"]
 
-EXPOSE 9000
-EXPOSE 9003
+EXPOSE 9000 9003

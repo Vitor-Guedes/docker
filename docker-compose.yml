@@ -19,11 +19,23 @@ services:
             - ../workspace:/projects
         networks:
             - projects
+    php_2:
+        build:
+            context: ./php
+        container_name: docker_php_2
+        expose:
+            - 9000
+            - 9003
+        volumes:
+            - ../workspace:/projects
+        networks:
+            - projects
     nginx:
         image: nginx:latest
         container_name: docker_nginx
         volumes:
-            - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
             - ./nginx/sites:/etc/nginx/sites-available
             - ../workspace:/projects
         ports:
